@@ -12,7 +12,6 @@ app.get("/", (req, res) => {
 
 app.listen(config.app.port, async () => {
     console.log('escuchando');
-
     try {
         await db.connect();
         console.log("DB is connected 🤠");
