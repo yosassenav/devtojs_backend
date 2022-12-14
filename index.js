@@ -18,14 +18,6 @@ app.listen(config.app.port, async () => {
     try {
         await db.connect();
         console.log("DB is connected 🤠");
-
-        //const findUser = await userUsecases.findByEmail('yy')
-        //onst findUserId = findUser._id
-        //password = "kkkkkkk"
-        //console.log('hashed', password)
-
-        const tokenUser = await userUsecases.authenticate({email:"yy", password:"asdf"})
-        console.log('encontrado', tokenUser)
       } catch (err) {
         console.error("Connection refused:", err);
       }
