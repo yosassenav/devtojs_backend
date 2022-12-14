@@ -1,4 +1,4 @@
-//jess, las funciones de los usecases son findByEmail(email) -> user, 
+//funciones de los usecases son findByEmail(email) -> user, 
 // update(email, data) -> updatedUser, 
 // authenticate(email, password) -> token, 
 // create(email, password) -> user.
@@ -14,4 +14,20 @@ const {
 findByEmail,
 update,
 authenticate,
-};
+}=require("../usecases/user"); //verificar ruta de user
+
+routes.get("/email", async(req,res)=>{
+const {email}=req.params;
+
+try {
+    const emailFound= await findByEmail(email);
+    res.json({
+        ok:true,
+        payload:{emailFound},
+    })
+} catch (error) {
+    const {message}=error;
+    res.status(404).json({ok:false, message});
+}
+});
+
