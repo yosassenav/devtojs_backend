@@ -1,7 +1,6 @@
 const express = require("express")
 const config = require("./src/lib/config");;
 const db = require("./src/lib/db")
-const { hashPassword, verifyPassword } = require("./src/lib/encrypt")
 
 const userUsecases= require("./src/usecases/user")
 
