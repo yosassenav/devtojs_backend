@@ -10,8 +10,8 @@ const Post = require("./../../models/posts").postsModel;
  */
 
 const create = async (data) => {
-  const { title, description } = data;
-  const newPost = new Post({ title, description });
+  const { title, description, user } = data;
+  const newPost = new Post({ title, description, user });
   return await newPost.save();
 };
 const getUserPosts = async (user) => await Post.find({ user }).exec();
