@@ -1,9 +1,8 @@
 const express = require("express");
 const config = require("./src/lib/config");
 const db = require("./src/lib/db");
-const apiRouter=require("./src/routes");
+const apiRouter = require("./src/routes");
 const app = express();
-
 
 app.use(express.json());
 apiRouter(app);
