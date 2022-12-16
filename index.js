@@ -3,9 +3,14 @@ const config = require("./src/lib/config");
 const db = require("./src/lib/db");
 const apiRouter = require("./src/routes");
 const app = express();
+const { logErrors, errorHandler } = require("./src/middlewares/errorHandler");
 
 app.use(express.json());
 apiRouter(app);
+
+
+app.use(logErrors);
+app.use(errorHandler);
 
 app.get("/", (req, res) => {
   res.json({ message: "arriba" });
